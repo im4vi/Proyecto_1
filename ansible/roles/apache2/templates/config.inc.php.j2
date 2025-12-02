@@ -1,0 +1,56 @@
+<?php
+/**
+ * phpMyAdmin configuration
+ * Este archivo sobrescribe la configuración por defecto
+ */
+
+declare(strict_types=1);
+
+/**
+ * This is needed for cookie based authentication to encrypt password in
+ * cookie. Needs to be 32 chars long.
+ */
+$cfg['blowfish_secret'] = '{{ lookup("password", "/dev/null chars=ascii_letters,digits length=32") }}';
+
+/**
+ * Servers configuration
+ */
+$i = 0;
+
+/**
+ * First server - MariaDB remoto
+ */
+$i++;
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+/* Server parameters */
+$cfg['Servers'][$i]['host'] = '{{ guestbook_db_host }}';
+$cfg['Servers'][$i]['connect_type'] = 'tcp';
+$cfg['Servers'][$i]['port'] = '3306';
+$cfg['Servers'][$i]['ssl'] = false;
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+
+/**
+ * phpMyAdmin configuration storage settings.
+ * Deshabilitadas por simplicidad
+ */
+
+/**
+ * Directories for saving/loading files from server
+ */
+$cfg['UploadDir'] = '';
+$cfg['SaveDir'] = '';
+
+/**
+ * Opciones de interfaz
+ */
+$cfg['DefaultLang'] = 'es';
+$cfg['ServerDefault'] = 1;
+
+/**
+ * Deshabilitar advertencias innecesarias
+ */
+$cfg['PmaNoRelation_DisableWarning'] = true;
+$cfg['SuhosinDisableWarning'] = true;
+$cfg['LoginCookieValidityDisableWarning'] = true;

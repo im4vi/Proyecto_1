@@ -1,0 +1,23 @@
+# Terraform/OpenTofu
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+
+# Ansible
+*.retry
+*.log
+
+# SSH keys
+*.pem
+*_rsa
+*_rsa.pub
+
+# Sistema
+.DS_Store
+*.swp
+*.swo
+*~
